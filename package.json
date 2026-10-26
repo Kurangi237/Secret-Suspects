@@ -1,0 +1,12 @@
+{
+  "name": "secret-suspects-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node secret-suspects-project/secret-suspects/scripts/build.mjs",
+    "test": "node --test secret-suspects-project/secret-suspects/tests/*.test.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.5.0"
+  }
+}
