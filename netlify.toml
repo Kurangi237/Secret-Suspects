@@ -1,0 +1,22 @@
+# The app lives in a subfolder. Dependencies are installed from the root
+# package.json so the game function can always resolve @netlify/blobs.
+[build]
+  command = "npm run build"
+  publish = "secret-suspects-project/secret-suspects/dist"
+
+[functions]
+  directory = "secret-suspects-project/secret-suspects/netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-store"
